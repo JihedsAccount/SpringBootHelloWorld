@@ -4,8 +4,9 @@
 
 <configuration>
 
-	<property name="DEV__HOME" value="C:/logs" />
-
+<!-- 	<property name="DEV__HOME" value="C:/logs" /> -->
+	<property name="DEV__HOME" value="/var/lib/jenkins/workspace/JenkinsFirstJob/logs" />
+	
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
