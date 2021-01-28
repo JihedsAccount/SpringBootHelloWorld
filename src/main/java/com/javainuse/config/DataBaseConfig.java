@@ -4,6 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,17 +22,21 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @Configuration
 public class DataBaseConfig {
 
+	@Value("${spring.datasource.url}")
+	private String url;
+	@Value("${spring.datasource.username}")
+	private String user;
+	@Value("${spring.datasource.password}")
+	private String password;
+	
 	@Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//        dataSource.setUrl("jdbc:mysql://localhost:3306/examplebd?autoreconnect = true");
-//        dataSource.setUsername( "myuser" );
-//        dataSource.setPassword( "mysql" );
         
-        dataSource.setUrl("jdbc:mysql://localhost:3306/bdtest?autoreconnect = true");
-        dataSource.setUsername( "user1" );
-        dataSource.setPassword( "mypass" );
+        dataSource.setUrl(url);
+        dataSource.setUsername(user);
+        dataSource.setPassword(password);
         
         return dataSource;
     }
