@@ -25,9 +25,14 @@ public class DataBaseConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/examplebd?autoreconnect = true");
-        dataSource.setUsername( "myuser" );
-        dataSource.setPassword( "mysql" );
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/examplebd?autoreconnect = true");
+//        dataSource.setUsername( "myuser" );
+//        dataSource.setPassword( "mysql" );
+        
+        dataSource.setUrl("jdbc:mysql://localhost:3306/bdtest?autoreconnect = true");
+        dataSource.setUsername( "user1" );
+        dataSource.setPassword( "mypass" );
+        
         return dataSource;
     }
 	
