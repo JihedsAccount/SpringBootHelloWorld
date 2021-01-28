@@ -1,5 +1,21 @@
-CREATE DATABASE employees;
 
-CREATE USER 'employeesuser'@'localhost' IDENTIFIED BY 'mysql';
+mysql -u root -p
 
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON examplebd.* TO 'employeesuser'@'localhost';
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'mypass';
+CREATE USER 'user1'@'%' IDENTIFIED BY 'mypass';
+
+
+GRANT ALL ON *.* TO 'user1'@'localhost';
+GRANT ALL ON *.* TO 'user1'@'%';
+flush privileges;
+
+
+CREATE DATABASE dbtest;
+
+
+mysql -u user1 -p
+
+use dbtest;
+CREATE TABLE `employees` (`empId` int(11) NOT NULL,`name` varchar(20) DEFAULT NULL,`designation` varchar(20) DEFAULT NULL,`salary` double DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO employees(empId, name, designation, salary) VALUES ('1', 'name', 'designation', '2000');
