@@ -1,17 +1,15 @@
 
 mysql -u root -p
 
-CREATE USER 'user1'@'localhost' IDENTIFIED BY 'mypass';
 CREATE USER 'user1'@'%' IDENTIFIED BY 'mypass';
 
-
-GRANT ALL ON *.* TO 'user1'@'localhost';
 GRANT ALL ON *.* TO 'user1'@'%';
 flush privileges;
 
 
 CREATE DATABASE dbtest;
 
+exit
 
 mysql -u user1 -p
 
