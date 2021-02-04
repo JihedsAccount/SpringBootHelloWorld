@@ -56,6 +56,11 @@ public class EmployeeController {
 		return emp;
 	}
 	
+	@ApiOperation(value = "Save new emplyee", response = Employee.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully saved employee"),
+			@ApiResponse(code = 401, message = "You are not authorized to save the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	@RequestMapping(value = "/saveemployee", method = RequestMethod.POST)
 	public Employee saveEmployee(Employee employee) {
 
