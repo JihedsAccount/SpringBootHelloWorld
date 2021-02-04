@@ -8,15 +8,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "employees")
 public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(notes = "The database generated employee ID")
 	private Long empId;
+	
+	@ApiModelProperty(notes = "The database employee name")
 	private String name;
+	
+	@ApiModelProperty(notes = "The database employee designation")
 	private String designation;
+	
+	@ApiModelProperty(notes = "The database employee salary")
 	private double salary;
 
 	public Employee() {
