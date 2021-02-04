@@ -1,4 +1,4 @@
 FROM java:8
 EXPOSE 8081
-ADD target/SpringBootHelloWorld-0.0.1-SNAPSHOT.jar SpringBootHelloWorld-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "/SpringBootHelloWorld-0.0.1-SNAPSHOT.jar"]
+ADD target/springboothelloworld.jar springboothelloworld.jar
+ENTRYPOINT ["java", "-jar", "/springboothelloworld.jar"]
